@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Dekret_CSharpLab1.View.BirthDateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Dekret_CSharpLab1.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Enter your birth date: "/>
+        <DatePicker Width="150" Height="30" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalAlignment="Center" SelectedDate="{Binding BirthDate}"></DatePicker>
+        <Button Width="80" Height="20" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Right" Content="Count" Command="{Binding EnterCommand}"></Button>
+
+        <Label Target="{Binding ElementName=Ageblock}" Grid.Row="1" Grid.Column="2">Your age is:</Label>
+        <TextBlock Name="Ageblock" Grid.Row="1" Grid.Column="2" Width="100" Height="20" Text="{Binding Age, Mode=OneWay}"></TextBlock>
+
+        <Label Target="{Binding ElementName=WesternZodiacBlock}" Grid.Row="2" Grid.Column="2">It is your sun zodiac:</Label>
+        <TextBlock Name="WesternZodiacBlock" Grid.Row="2" Grid.Column="2" Width="100" Height="20" Text="{Binding UserSunZodiac, Mode=OneWay}"></TextBlock>
+
+        <Label Target="{Binding ElementName=ChineseZodiacBlock}" Grid.Row="3" Grid.Column="2">It is your chinese zodiac is:</Label>
+        <TextBlock Name="ChineseZodiacBlock" Grid.Row="3" Grid.Column="2"  Width="70" Height="20" Text="{Binding UserChineseZodiac, Mode=OneWay}"></TextBlock>
+
+        <Button Name="ExitButton" Width="70" Height="20" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Left" Background="MediumVioletRed" Content="Exit" Command="{Binding CloseCommand}"></Button>
+    </Grid>
+</UserControl>
